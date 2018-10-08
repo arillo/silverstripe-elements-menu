@@ -1,0 +1,6 @@
+---
+Name: elements-menu
+---
+Arillo\Elements\ElementBase:
+  extensions:
+    - Arillo\Elements\Menu\ElementBaseExtension
