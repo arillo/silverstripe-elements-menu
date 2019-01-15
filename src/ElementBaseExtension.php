@@ -50,17 +50,17 @@ class ElementBaseExtension extends DataExtension
             && !$holder->config()->disable_elements_menu
         ) {
             $fields->insertAfter(
-                TextField::create('MenuTitle', _t(__CLASS__ . '.MenuTitle', 'Menu title')),
+                TextField::create('MenuTitle', _t(ElementBase::class . '.MenuTitle', 'Menu title')),
                 $insertAfter
             );
 
             $fields->insertAfter(
-                ElementURLSegmentField::create('URLSegment', _t(__CLASS__ . '.URLSegment', 'Url segment')),
+                ElementURLSegmentField::create('URLSegment', _t(ElementBase::class . '.URLSegment', 'Url-Segment')),
                 $insertAfter
             );
 
             $fields->insertAfter(
-                CheckboxField::create('ShowInMenu', _t(__CLASS__ . '.ShowInMenu', 'Show in menu')),
+                CheckboxField::create('ShowInMenu', _t(ElementBase::class . '.ShowInMenu', 'Show in menu')),
                 $insertAfter
             );
         }
