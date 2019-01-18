@@ -30,6 +30,10 @@ class ElementBaseExtension extends DataExtension
         $db = [
             'MenuTitle' => 'Text',
             'ShowInMenu' => 'Boolean',
+        ],
+
+        $translate = [
+            'MenuTitle',
         ]
     ;
 
