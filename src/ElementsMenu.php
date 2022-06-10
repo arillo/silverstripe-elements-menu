@@ -1,6 +1,9 @@
 <?php
 namespace Arillo\Elements\Menu;
 
+use Arillo\Elements\ElementBase;
+use TractorCow\Fluent\Extension\FluentVersionedExtension;
+
 /**
  * Add this trait to any SiteTree or ContentController class,
  * where you want to use inpage menus.
@@ -17,13 +20,24 @@ trait ElementsMenu
 {
     public function getElementsMenuItems()
     {
-        if ($this->config()->disable_elements_menu) return null;
+        if ($this->config()->disable_elements_menu) {
+            return null;
+        }
 
-        $relationName = $this->config()->elements_menu_relationname ?? 'Elements';
+        $relationName =
+            $this->config()->elements_menu_relationname ?? 'Elements';
 
-        return $this
-            ->ElementsByRelation($relationName)
-            ->filter('ShowInMenu', true)
-        ;
+        $elements = $this->ElementsByRelation($relationName)->filter(
+            'ShowInMenu',
+            true
+        );
+
+        if (ElementBase::has_extension(FluentVersionedExtension::class)) {
+            $elements = $elements->filterByCallback(function ($e) {
+                return $e->isPublishedInLocale($e->Locale);
+            });
+        }
+
+        return $elements;
     }
 }
