@@ -3,10 +3,15 @@
   "description": "In page menus for Arillo\\Elements",
   "type": "silverstripe-vendormodule",
   "homepage": "https://github.com/arillo/silverstripe-elements-menu",
-  "keywords": ["silverstripe", "elements", "menu", "inpage"],
+  "keywords": [
+    "silverstripe",
+    "elements",
+    "menu",
+    "inpage"
+  ],
   "license": "MIT",
   "require": {
-    "silverstripe/framework": "^4 || ^5"
+    "silverstripe/framework": "^5"
   },
   "authors": [
     {
